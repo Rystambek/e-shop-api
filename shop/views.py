@@ -11,7 +11,7 @@ class ProductView(APIView):
     def get(self, request: Request, pk=None)->Response:
         if pk is None:
             product =Product.objects.all()
-            serializer = ProductSerializer(product)
+            serializer = ProductSerializer(product, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         try:
             product = Product.objects.get(pk=pk)
@@ -46,11 +46,13 @@ class ProductView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         serializer.delete()
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 class UserView(APIView):
     def get(self, request: Request, pk=None)->Response:
         if pk is None:
             users =User.objects.all()
-            serializer = ProductSerializer(users)
+            serializer = UserSerializer(users, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
         try:
             user = User.objects.get(pk=pk)
