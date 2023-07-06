@@ -32,6 +32,6 @@ class LikeSerializer(serializers.ModelSerializer):
     products = ProductSerializer(many=True, read_only=True)
     user = UserSerializer(many=True, read_only=True)
     class Meta:
-        model=Comment
+        model=Like
         fields ='__all__'
 
