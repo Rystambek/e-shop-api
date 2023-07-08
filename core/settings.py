@@ -39,8 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop.apps.ShopConfig',
 
-    'rest_framework',
+    'rest_framework'
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
