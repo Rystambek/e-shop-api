@@ -18,17 +18,17 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product =  models.ForeignKey(Product,on_delete=models.CASCADE)
     def __str__(self):
-        return self.id
+        return str(self.id)
 class Comment(models.Model):
     text=models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product =  models.ForeignKey(Product, on_delete=models.CASCADE)
     def __str__(self):
-        return self.id
+        return str(self.id)
 class Like(models.Model):
     like = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product =  models.ForeignKey(Product, on_delete=models.CASCADE)
     def __str__(self):
-        return self.id
+        return str(self.id)
 

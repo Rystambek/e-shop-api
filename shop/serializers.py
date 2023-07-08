@@ -17,21 +17,21 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields ='__all__'
 class OrderSerializer(serializers.ModelSerializer):
-    products = ProductSerializer(many=True, read_only=True)
-    user = UserSerializer(many=True, read_only=True)
+    product = ProductSerializer(read_only=True)
+    user = UserSerializer(read_only=True)
     class Meta:
         model=Order
-        fields ='__all__'
+        fields =['id','product','user']
 class CommentSerializer(serializers.ModelSerializer):
-    products = ProductSerializer(many=True, read_only=True)
-    user = UserSerializer(many=True, read_only=True)
+    product = ProductSerializer(read_only=True)
+    user = UserSerializer(read_only=True)
     class Meta:
         model=Comment
-        fields ='__all__'
+        fields =['id','text','product','user']
 class LikeSerializer(serializers.ModelSerializer):
-    products = ProductSerializer(many=True, read_only=True)
-    user = UserSerializer(many=True, read_only=True)
+    product = ProductSerializer( read_only=True)
+    user = UserSerializer(read_only=True)
     class Meta:
         model=Like
-        fields ='__all__'
+        fields =['id','like','product','user']
 
