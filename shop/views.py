@@ -43,8 +43,10 @@ class ProductView(APIView):
             product = Product.objects.get(pk=pk)
         except Product.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+
         product.delete()
         return Response({"product":"deleted"})
+
 class UserView(APIView):
     def get(self, request: Request, pk=None)->Response:
         if pk is None:
